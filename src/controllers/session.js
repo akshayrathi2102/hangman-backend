@@ -1,11 +1,12 @@
 const Word = require("../models/word");
 const GameSession = require("../models/gameSession")
+const sequelize = require("../models/index")
 const serializeGameSession = require("../serializers/gameSession")
 const gameSessionService = require("../services/gameSession")
 
 const createSession = async (req, res) => {
   const name = req.body.name;
-  const word = await Word.findOne();
+  const word = await Word.findOne({order: sequelize.random()});
 
   const gameSession = await GameSession.create({
     playerName: name,
