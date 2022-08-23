@@ -67,7 +67,7 @@ Install all the dependencies
 
 ## Start
 
-To build this project run 
+To start this project run 
 
 ```sh
   node ./src/app.js
