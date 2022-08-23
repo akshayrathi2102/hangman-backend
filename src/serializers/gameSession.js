@@ -10,13 +10,13 @@ const serializeGameSession = async (gameSession) => {
 
   const maskedWord = [...actualWord]
     .map(letter => playedLettersSet.has(letter) ? letter : "_")
-
+  const livesLeft = calculateLivesLeft(actualWord, playedLetters);
   actualWord = !!gameSession.endedAt ? actualWord : "";
 
   return {
     id: gameSession.id,
     name,
-    livesLeft: calculateLivesLeft(actualWord, playedLetters),
+    livesLeft,
     result: !!gameSession.endedAt,
     maskedWord,
     playedLetters,
